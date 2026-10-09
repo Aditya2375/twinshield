@@ -53,3 +53,4 @@ td{padding:7px 8px;border-bottom:1px solid #151c23;white-space:nowrap}tr.f td{co
 .limits ul{margin:12px 0 0;padding-left:18px;color:var(--dim)}.limits li{margin:6px 0}
 @media(max-width:860px){.grid,.grid.two{grid-template-columns:1fr}.status{grid-template-columns:auto 1fr}.status-meta{grid-column:1/-1;text-align:left}.score b{font-size:30px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+@media(max-width:520px){#scanTbl th:nth-child(2),#scanTbl td:nth-child(2){display:none}table{font-size:11px}}
