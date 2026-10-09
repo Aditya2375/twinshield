@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TwinShield - warning for lookalike Wi-Fi hotspots</title>
+<meta name="description" content="A local tool that compares nearby Wi-Fi access points with a network you approved and shows the evidence when something looks like a twin.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 4.5-3.2 7.7-8 9-4.8-1.3-8-4.5-8-9V6z"/><path d="M8.5 12.5h7M12 9v7" opacity=".5"/></svg><span>TwinShield</span></div>
+  <div class="mode" id="mode">Connecting</div>
+</header>
+
+<div class="banner" id="banner" hidden></div>
+
+<main>
+  <section class="status" id="status">
+    <div class="status-dot" id="dot"></div>
+    <div>
+      <h1 id="headline">Reading the air</h1>
+      <p id="sub">Waiting for the first scan.</p>
+    </div>
+    <div class="status-meta"><div id="meta1"></div><div id="meta2"></div></div>
+  </section>
+
+  <div class="grid">
+    <section class="card radar-card">
+      <div class="card-h"><h2>Nearby radios</h2><span class="hint">distance = signal strength</span></div>
+      <canvas id="radar" aria-label="Radar view of nearby access points"></canvas>
+      <div class="legend"><span><i class="k ok"></i>approved</span><span><i class="k other"></i>not in baseline</span><span><i class="k warn"></i>flagged</span></div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><h2>Alerts</h2><span class="hint" id="alertCount"></span></div>
+      <div id="alerts"></div>
+    </section>
+  </div>
+
+  <section class="card" id="replayCard" hidden>
+    <div class="card-h"><h2>Test fixture timeline</h2><span class="hint">scan cycle <b id="cyc">1</b> of <b id="cycN"></b></span></div>
+    <div class="scrub"><button id="play" type="button">Pause</button><input type="range" id="range" min="1" value="1" aria-label="Scan cycle"></div>
+    <p class="note">This public demo replays a scripted scenario: an approved campus network, an owner's channel change, a controlled twin with no security, and a lookalike name. It is test data, not a real scan.</p>
+  </section>
+
+  <div class="grid two">
+    <section class="card">
+      <div class="card-h"><h2>Approved baseline</h2><span class="hint" id="blMeta"></span></div>
+      <div id="baseline"></div>
+      <div id="approveBox" hidden>
+        <p class="note">Only approve networks you own or are authorised to manage. Pick them from what is in the air now.</p>
+        <div id="ssidPick" class="pick"></div>
+        <button class="btn" id="approve" type="button">Approve selected as baseline</button>
+        <p class="note" id="approveMsg" role="status"></p>
+      </div>
+    </section>
+    <section class="card">
+      <div class="card-h"><h2>Latest scan</h2><span class="hint" id="scanMeta"></span></div>
+      <div class="tbl-wrap"><table id="scanTbl"><thead><tr><th>Name</th><th>Radio</th><th>Ch</th><th>Signal</th><th>Security</th></tr></thead><tbody></tbody></table></div>
+    </section>
+  </div>
+
+  <section class="card limits">
+    <h2>What this can and cannot tell you</h2>
+    <ul>
+      <li>It reports suspicious evidence for you to check. It does not prove an attack and the score is a review priority, not a probability.</li>
+      <li>A copied radio address with the same security and a believable signal can look like the real thing to a metadata-only check.</li>
+      <li>One adapter sees only what is in range, and signal moves with people and walls.</li>
+      <li>It reads access-point names and radio details. It never captures traffic, collects credentials or disconnects anyone.</li>
+    </ul>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
