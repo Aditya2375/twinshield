@@ -1,0 +1,3119 @@
+{
+ "fixture": true,
+ "interval": 10,
+ "baseline": {
+  "name": "baseline",
+  "version": 1791532823,
+  "networks": {
+   "CampusNet": {
+    "security": "WPA2",
+    "radios": {
+     "a4:2b:b0:11:c0:01": {
+      "channels": [
+       36
+      ],
+      "bands": [
+       "5 GHz"
+      ],
+      "security": "WPA2",
+      "signal_mean": 74.8,
+      "signal_sd": 5.0
+     },
+     "a4:2b:b0:11:c0:02": {
+      "channels": [
+       6
+      ],
+      "bands": [
+       "2.4 GHz"
+      ],
+      "security": "WPA2",
+      "signal_mean": 64.8,
+      "signal_sd": 5.0
+     },
+     "a4:2b:b0:11:c0:03": {
+      "channels": [
+       149
+      ],
+      "bands": [
+       "5 GHz"
+      ],
+      "security": "WPA2",
+      "signal_mean": 58.3,
+      "signal_sd": 5.0
+     }
+    }
+   },
+   "CampusNet-Guest": {
+    "security": "WPA2",
+    "radios": {
+     "a4:2b:b0:11:d0:01": {
+      "channels": [
+       1
+      ],
+      "bands": [
+       "2.4 GHz"
+      ],
+      "security": "WPA2",
+      "signal_mean": 52.2,
+      "signal_sd": 5.0
+     }
+    }
+   },
+   "Hostel-Wifi": {
+    "security": "WPA2",
+    "radios": {
+     "f0:9f:c2:5a:77:10": {
+      "channels": [
+       11
+      ],
+      "bands": [
+       "2.4 GHz"
+      ],
+      "security": "WPA2",
+      "signal_mean": 59.5,
+      "signal_sd": 5.0
+     }
+    }
+   }
+  }
+ },
+ "frames": [
+  {
+   "cycle": 1,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 72,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 62,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 62,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 48,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 60,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 44,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 2,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 78,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 63,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 54,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 54,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 60,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 36,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 45,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 3,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 74,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 64,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 57,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 56,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 57,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 41,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 49,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 4,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 77,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 69,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 57,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 51,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 61,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 39,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 47,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 5,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 71,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 68,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 55,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 58,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 39,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 48,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 6,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 77,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 63,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 61,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 49,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 61,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 41,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 49,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 7,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 75,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 69,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 55,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 51,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 40,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 50,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 8,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 77,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 66,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 60,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 52,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 62,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 40,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 45,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": []
+  },
+  {
+   "cycle": 9,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 72,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 65,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 56,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 48,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 65,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 39,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 51,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 89,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 89,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 1,
+     "acked": false,
+     "signal_history": [
+      89
+     ],
+     "last_seen": 1080,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    }
+   ]
+  },
+  {
+   "cycle": 10,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 70,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 70,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 60,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 55,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 57,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 37,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 44,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 87,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 87,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 2,
+     "acked": false,
+     "signal_history": [
+      89,
+      87
+     ],
+     "last_seen": 1090,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    }
+   ]
+  },
+  {
+   "cycle": 11,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 71,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 64,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 49,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 63,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 38,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 48,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 88,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 88,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 3,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88
+     ],
+     "last_seen": 1100,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    }
+   ]
+  },
+  {
+   "cycle": 12,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 77,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 69,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 58,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 49,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 61,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 36,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 46,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 89,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 89,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 4,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89
+     ],
+     "last_seen": 1110,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    }
+   ]
+  },
+  {
+   "cycle": 13,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 78,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 70,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 55,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 52,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 37,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 51,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 87,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 87,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 5,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87
+     ],
+     "last_seen": 1120,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 70,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 1,
+     "acked": false,
+     "signal_history": [
+      70
+     ],
+     "last_seen": 1120,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 14,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 73,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 68,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 57,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 55,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 57,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 38,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 46,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 90,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 90,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      },
+      {
+       "rule": "Much stronger than every approved radio",
+       "points": 10,
+       "detail": "Signal 90% vs the strongest approved radio near 75%."
+      }
+     ],
+     "score": 90,
+     "first_seen": 1080,
+     "sightings": 6,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90
+     ],
+     "last_seen": 1130,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 68,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 2,
+     "acked": false,
+     "signal_history": [
+      70,
+      68
+     ],
+     "last_seen": 1130,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 15,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 75,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 67,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 49,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 60,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 41,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 43,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 88,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 88,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 7,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88
+     ],
+     "last_seen": 1140,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 67,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 3,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67
+     ],
+     "last_seen": 1140,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 16,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 75,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 63,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 55,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 51,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 39,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 49,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 88,
+     "security": "OPEN"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 88,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 8,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88
+     ],
+     "last_seen": 1150,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 63,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 4,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63
+     ],
+     "last_seen": 1150,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 17,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 71,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 64,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 54,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 55,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 41,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 48,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 86,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 72,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 86,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 9,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86
+     ],
+     "last_seen": 1160,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 72,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 1,
+     "acked": false,
+     "signal_history": [
+      72
+     ],
+     "last_seen": 1160,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 64,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 5,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64
+     ],
+     "last_seen": 1160,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 18,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 70,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 63,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 56,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 51,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 60,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 51,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 86,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 74,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 86,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 10,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86,
+      86
+     ],
+     "last_seen": 1170,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 74,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 2,
+     "acked": false,
+     "signal_history": [
+      72,
+      74
+     ],
+     "last_seen": 1170,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 63,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 6,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64,
+      63
+     ],
+     "last_seen": 1170,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 19,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 74,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 64,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 56,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 65,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 36,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 43,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 91,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 71,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 91,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      },
+      {
+       "rule": "Much stronger than every approved radio",
+       "points": 10,
+       "detail": "Signal 91% vs the strongest approved radio near 75%."
+      }
+     ],
+     "score": 90,
+     "first_seen": 1080,
+     "sightings": 11,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86,
+      86,
+      91
+     ],
+     "last_seen": 1180,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 71,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 3,
+     "acked": false,
+     "signal_history": [
+      72,
+      74,
+      71
+     ],
+     "last_seen": 1180,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 64,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 7,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64,
+      63,
+      64
+     ],
+     "last_seen": 1180,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 20,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 70,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 64,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 61,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 49,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 62,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 42,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 44,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 89,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 68,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 89,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 12,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86,
+      86,
+      91,
+      89
+     ],
+     "last_seen": 1190,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 68,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 4,
+     "acked": false,
+     "signal_history": [
+      72,
+      74,
+      71,
+      68
+     ],
+     "last_seen": 1190,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 64,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 8,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64,
+      63,
+      64,
+      64
+     ],
+     "last_seen": 1190,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 21,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 74,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 63,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 62,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 49,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 65,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 37,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 50,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 89,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 72,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 89,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 13,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86,
+      86,
+      91,
+      89,
+      89
+     ],
+     "last_seen": 1200,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 72,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 5,
+     "acked": false,
+     "signal_history": [
+      72,
+      74,
+      71,
+      68,
+      72
+     ],
+     "last_seen": 1200,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 63,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 9,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64,
+      63,
+      64,
+      64,
+      63
+     ],
+     "last_seen": 1200,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 22,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 78,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 70,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 58,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 51,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 40,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 44,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 90,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 69,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 90,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      },
+      {
+       "rule": "Much stronger than every approved radio",
+       "points": 10,
+       "detail": "Signal 90% vs the strongest approved radio near 75%."
+      }
+     ],
+     "score": 90,
+     "first_seen": 1080,
+     "sightings": 14,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86,
+      86,
+      91,
+      89,
+      89,
+      90
+     ],
+     "last_seen": 1210,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 69,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 6,
+     "acked": false,
+     "signal_history": [
+      72,
+      74,
+      71,
+      68,
+      72,
+      69
+     ],
+     "last_seen": 1210,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 70,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 10,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64,
+      63,
+      64,
+      64,
+      63,
+      70
+     ],
+     "last_seen": 1210,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 23,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 73,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 63,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 56,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 53,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 59,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 37,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 44,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 88,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 71,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 88,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 15,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86,
+      86,
+      91,
+      89,
+      89,
+      90,
+      88
+     ],
+     "last_seen": 1220,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 71,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 7,
+     "acked": false,
+     "signal_history": [
+      72,
+      74,
+      71,
+      68,
+      72,
+      69,
+      71
+     ],
+     "last_seen": 1220,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 63,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 11,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64,
+      63,
+      64,
+      64,
+      63,
+      70,
+      63
+     ],
+     "last_seen": 1220,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  },
+  {
+   "cycle": 24,
+   "scan": [
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:01",
+     "channel": 36,
+     "freq": 5180,
+     "signal_pct": 73,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 68,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:03",
+     "channel": 149,
+     "freq": 5745,
+     "signal_pct": 60,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "CampusNet-Guest",
+     "bssid": "a4:2b:b0:11:d0:01",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 51,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Hostel-Wifi",
+     "bssid": "f0:9f:c2:5a:77:10",
+     "channel": 11,
+     "freq": 2462,
+     "signal_pct": 58,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "PrinterRoom",
+     "bssid": "10:62:eb:00:9c:42",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 34,
+     "security": "WPA2"
+    },
+    {
+     "ssid": "Cafe Beans",
+     "bssid": "3c:84:6a:9e:21:b8",
+     "channel": 44,
+     "freq": 5220,
+     "signal_pct": 50,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "channel": 6,
+     "freq": 2437,
+     "signal_pct": 88,
+     "security": "OPEN"
+    },
+    {
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "channel": 1,
+     "freq": 2412,
+     "signal_pct": 73,
+     "security": "WPA"
+    }
+   ],
+   "incidents": [
+    {
+     "key": "CampusNet|02:19:e3:5d:44:aa",
+     "ssid": "CampusNet",
+     "bssid": "02:19:e3:5d:44:aa",
+     "kind": "unfamiliar_radio",
+     "channel": 6,
+     "band": "2.4 GHz",
+     "security": "OPEN",
+     "signal_pct": 88,
+     "evidence": [
+      {
+       "rule": "Unfamiliar radio using a known name",
+       "points": 45,
+       "detail": "\"CampusNet\" is approved, but radio 02:19:e3:5d:44:aa is not in the baseline. The baseline lists 3 approved radio(s)."
+      },
+      {
+       "rule": "Weaker security than the approved network",
+       "points": 35,
+       "detail": "Advertises OPEN; the approved network uses WPA2."
+      }
+     ],
+     "score": 80,
+     "first_seen": 1080,
+     "sightings": 16,
+     "acked": false,
+     "signal_history": [
+      89,
+      87,
+      88,
+      89,
+      87,
+      90,
+      88,
+      88,
+      86,
+      86,
+      91,
+      89,
+      89,
+      90,
+      88,
+      88
+     ],
+     "last_seen": 1230,
+     "active": true,
+     "level": "high",
+     "label": "Strong suspicious evidence"
+    },
+    {
+     "key": "CampusNet-|02:19:e3:5d:44:b1",
+     "ssid": "CampusNet-",
+     "bssid": "02:19:e3:5d:44:b1",
+     "kind": "lookalike_name",
+     "channel": 1,
+     "band": "2.4 GHz",
+     "security": "WPA",
+     "signal_pct": 73,
+     "evidence": [
+      {
+       "rule": "Name is one small edit from an approved network",
+       "points": 30,
+       "detail": "\"CampusNet-\" looks like approved network \"CampusNet\"."
+      },
+      {
+       "rule": "Weaker security than the lookalike target",
+       "points": 25,
+       "detail": "Advertises WPA; \"CampusNet\" uses WPA2."
+      }
+     ],
+     "score": 55,
+     "first_seen": 1160,
+     "sightings": 8,
+     "acked": false,
+     "signal_history": [
+      72,
+      74,
+      71,
+      68,
+      72,
+      69,
+      71,
+      73
+     ],
+     "last_seen": 1230,
+     "active": true,
+     "level": "review",
+     "label": "Review"
+    },
+    {
+     "key": "CampusNet|a4:2b:b0:11:c0:02",
+     "ssid": "CampusNet",
+     "bssid": "a4:2b:b0:11:c0:02",
+     "kind": "known_radio_changed",
+     "channel": 11,
+     "band": "2.4 GHz",
+     "security": "WPA2",
+     "signal_pct": 68,
+     "evidence": [
+      {
+       "rule": "Channel not seen for this radio",
+       "points": 12,
+       "detail": "Now on channel 11; baseline channels: 6. Channel changes are often normal."
+      }
+     ],
+     "score": 12,
+     "first_seen": 1120,
+     "sightings": 12,
+     "acked": false,
+     "signal_history": [
+      70,
+      68,
+      67,
+      63,
+      64,
+      63,
+      64,
+      64,
+      63,
+      70,
+      63,
+      68
+     ],
+     "last_seen": 1230,
+     "active": true,
+     "level": "low",
+     "label": "Low"
+    }
+   ]
+  }
+ ]
+}
