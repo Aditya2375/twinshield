@@ -6,6 +6,8 @@ It scans nearby access points, compares them with a network baseline **you** app
 
 It reports suspicious evidence. It does not prove an attack, and the score is a review priority, not a probability.
 
+Live: https://twinshield-five.vercel.app
+
 ## Run it
 
 Needs Python 3.8 or newer. Nothing to install.
