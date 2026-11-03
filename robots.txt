@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://twinshield-five.vercel.app/sitemap.xml
