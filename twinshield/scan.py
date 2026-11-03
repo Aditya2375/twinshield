@@ -41,9 +41,10 @@ def parse_nmcli(text):
         ssid, bssid, chan, freq, signal, sec = f[:6]
         if not re.fullmatch(r"[0-9A-Fa-f]{2}(:[0-9A-Fa-f]{2}){5}", bssid):
             continue
-        aps.append({"ssid": ssid, "bssid": bssid.lower(), "channel": int(chan or 0),
+        if not chan.isdigit() or not signal.isdigit(): continue
+        aps.append({"ssid": ssid[:128], "bssid": bssid.lower(), "channel": min(999,int(chan or 0)),
                     "freq": int(re.sub(r"\D", "", freq) or 0),
-                    "signal_pct": int(signal or 0), "security": _rank_security(sec)})
+                    "signal_pct": max(0,min(100,int(signal or 0))), "security": _rank_security(sec)})
     return aps
 
 def parse_netsh(text):
@@ -59,11 +60,12 @@ def parse_netsh(text):
             sec = _rank_security(m.group(1)); continue
         m = re.match(r"BSSID \d+\s*: (.*)", line)
         if m:
-            cur = {"ssid": ssid, "bssid": m.group(1).lower(), "channel": 0, "freq": 0, "signal_pct": 0, "security": sec}
+            if not re.fullmatch(r"[0-9A-Fa-f]{2}(:[0-9A-Fa-f]{2}){5}",m.group(1)): cur=None; continue
+            cur = {"ssid": ssid[:128], "bssid": m.group(1).lower(), "channel": 0, "freq": 0, "signal_pct": 0, "security": sec}
             aps.append(cur); continue
         if cur is not None:
             m = re.match(r"Signal\s*: (\d+)%", line)
-            if m: cur["signal_pct"] = int(m.group(1))
+            if m: cur["signal_pct"] = min(100,int(m.group(1)))
             m = re.match(r"Channel\s*: (\d+)", line)
             if m: cur["channel"] = int(m.group(1))
     return aps
