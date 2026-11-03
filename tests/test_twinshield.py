@@ -30,3 +30,12 @@ class T(unittest.TestCase):
         inc.update(f); self.assertEqual(inc.snapshot()[0]["level"], "high")
         inc.update([]); self.assertFalse(inc.snapshot()[0]["active"])
 if __name__ == "__main__": unittest.main()
+
+class Safety(unittest.TestCase):
+    def test_bad_nmcli(self):
+        self.assertEqual(scan.parse_nmcli(r'X:AA\:BB\:CC\:DD\:EE\:01:bad:2437:bad:WPA2'),[])
+    def test_incident_cap(self):
+        inc=detect.Incidents()
+        base={"ssid":"x","bssid":"b","kind":"lookalike_name","channel":1,"band":"2.4 GHz","security":"OPEN","signal_pct":50,"evidence":[],"score":30}
+        inc.update([dict(base,key=str(i)) for i in range(650)])
+        self.assertEqual(len(inc.items),500)
