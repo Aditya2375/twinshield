@@ -59,3 +59,11 @@ python3 -m unittest tests.test_twinshield
 ```
 
 The public demo at the project site replays the test fixture. It is not a scan of your network.
+
+## Technical audit notes
+
+Public hosting loads the labeled fixture only, with no local-scanner polling. Fonts are self-hosted with license notices. The local server checks loopback Host on reads and writes, rejects cross-origin writes, caps JSON bodies, and serves an explicit static allowlist. Baseline approval accepts observed networks only and reports save failure. Corrupt or oversized local JSON fails safely; parser malformed rows are skipped. Incident storage is capped at 500. Network requests have 8s client timeouts and parsed-response caps; uncertainty does not trigger automatic write retries. A lost scanner connection changes status to unavailable, never leaves a green assurance. Reduced-motion disables autonomous fixture playback and radar animation until the user chooses play.
+
+No hardware scan or baseline approval on a real network was performed in this audit. Tests use replay fixtures and temporary storage. Radar angle comes from the radio address, not direction; radius is an illustration of signal, not physical distance. No findings is not proof of safety. Local OS permissions and hardware behavior remain to verify.
+
+Support: adityakulkarnicoding@gmail.com
