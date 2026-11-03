@@ -54,3 +54,5 @@ td{padding:7px 8px;border-bottom:1px solid #151c23;white-space:nowrap}tr.f td{co
 @media(max-width:860px){.grid,.grid.two{grid-template-columns:1fr}.status{grid-template-columns:auto 1fr}.status-meta{grid-column:1/-1;text-align:left}.score b{font-size:30px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 @media(max-width:520px){#scanTbl th:nth-child(2),#scanTbl td:nth-child(2){display:none}table{font-size:11px}}
+
+[hidden]{display:none!important}:focus-visible{outline:3px solid #5fd0a0;outline-offset:4px}.card,.a-name{min-width:0}.a-name,.bl-net,.ev{overflow-wrap:anywhere}footer a{color:inherit}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
