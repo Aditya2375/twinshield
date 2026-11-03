@@ -1,0 +1,2 @@
+# TwinShield
+Public scripted fixture demo, not a real network scan. Local Python tool reads Wi-Fi metadata only. Scores are review priorities, not attack probabilities. No rule finding proves safety. Radar placement is illustrative, not geographic.
