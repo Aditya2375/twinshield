@@ -1,10 +1,11 @@
 (() => {
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;let raf=null;
 let mode = "live", demo = null, frame = 0, playing = true, timer = null, st = null, flagged = new Set();
 
 const HEAD = {
-  clear: ["Nothing suspicious", "Every radio using an approved name is one you approved."],
+  clear: ["No rule findings", "Metadata rules found no mismatch. This does not establish that a network is safe."],
   review: ["Worth a look", "Something changed that may be normal. Check the evidence below."],
   alert: ["Suspicious evidence found", "A radio is using an approved name and the evidence does not fit your baseline. Verify before connecting."],
   unavailable: ["Scanner unavailable", "No fresh scan. This is not a safe signal. Check the scanner."],
@@ -23,24 +24,24 @@ function statusOf(s) {
 
 function render(s) {
   st = s; flagged = new Set((s.incidents || []).filter((i) => i.active && i.level !== "low").map((i) => i.bssid));
-  const k = statusOf(s);
+  const k = HEAD[statusOf(s)]?statusOf(s):"unavailable";
   $("#status").className = "status s-" + k;
   $("#headline").textContent = HEAD[k][0]; $("#sub").textContent = s.error ? s.error : HEAD[k][1];
   $("#meta1").textContent = mode === "demo" ? "scan cycle " + s.cycle : "scan " + s.cycle + " every " + s.interval + "s";
   $("#meta2").textContent = mode === "demo" ? "test fixture" : "last " + ago(s.last_scan_at);
   const inc = (s.incidents || []).filter((i) => !i.acked || i.level === "high");
   $("#alertCount").textContent = inc.filter((i) => i.active).length + " active";
-  $("#alerts").innerHTML = inc.length ? inc.map(alertHtml).join("") : `<div class="empty">${s.baseline ? "No alerts. Radios sharing an approved name all match your baseline." : "Alerts appear once a baseline exists."}</div>`;
+  $("#alerts").innerHTML = inc.length ? inc.map(alertHtml).join("") : `<div class="empty">${s.baseline ? "No rule findings. Metadata checks cannot establish a network is safe." : "Alerts appear once a baseline exists."}</div>`;
   document.querySelectorAll("[data-ack]").forEach((b) => b.onclick = () => ack(b.dataset.ack));
   document.querySelectorAll("canvas.spark").forEach((c) => spark(c, JSON.parse(c.dataset.h)));
-  baselineHtml(s); scanHtml(s); drawRadar();
+  baselineHtml(s); scanHtml(s); if(reduced)drawRadar();else if(!raf)raf=requestAnimationFrame(drawRadar);
 }
 function alertHtml(i) {
   return `<article class="alert ${i.level} ${i.active ? "" : "gone"}">
   <div class="a-top"><div class="a-name">${esc(i.ssid || "(hidden name)")}<small>${esc(i.bssid)} &middot; ch ${i.channel} &middot; ${esc(i.band)} &middot; ${esc(i.security)}</small><span class="badge">${esc(i.label)}</span></div>
   <div class="score"><b>${i.score}</b><span>review score</span></div></div>
   <ul class="ev">${i.evidence.map((e) => `<li><span class="pts">+${e.points}</span><div><b>${esc(e.rule)}</b><span>${esc(e.detail)}</span></div></li>`).join("")}</ul>
-  <div class="a-foot"><span>seen ${i.sightings}x</span><span>${i.active ? "present now" : "no longer visible"}</span><canvas class="spark" width="180" height="44" data-h='${JSON.stringify(i.signal_history || [])}'></canvas><span>signal ${i.signal_pct}%</span>
+  <div class="a-foot"><span>seen ${i.sightings}x</span><span>${i.active ? "present now" : "no longer visible"}</span><canvas class="spark" width="180" height="44" data-h="${esc(JSON.stringify((i.signal_history || []).filter(Number.isFinite).slice(-40)))}"></canvas><span>signal ${i.signal_pct}%</span>
   ${mode === "live" ? `<button class="btn ghost" data-ack="${esc(i.key)}" type="button">Acknowledge</button>` : ""}</div></article>`;
 }
 function spark(c, h) {
@@ -79,7 +80,7 @@ function drawRadar(now) {
   const a = t * 0.9, grad = g.createConicGradient ? g.createConicGradient(a, cx, cx) : null;
   if (grad) { grad.addColorStop(0, "rgba(95,208,160,.22)"); grad.addColorStop(0.12, "rgba(95,208,160,0)"); grad.addColorStop(1, "rgba(95,208,160,0)"); g.fillStyle = grad; g.beginPath(); g.arc(cx, cx, R, 0, 7); g.fill(); }
   g.fillStyle = "#e6edf3"; g.beginPath(); g.arc(cx, cx, 4 * dpr, 0, 7); g.fill();
-  if (!st) return requestAnimationFrame(drawRadar);
+  if (!st) return;
   const approved = new Set(); Object.values((st.baseline && st.baseline.networks) || {}).forEach((n) => Object.keys(n.radios).forEach((b) => approved.add(b)));
   (st.scan || []).forEach((ap) => {
     const rad = R * (1 - Math.min(ap.signal_pct, 99) / 100) * 0.92 + R * 0.06, th = hue(ap.bssid), x = cx + Math.cos(th) * rad, y = cx + Math.sin(th) * rad;
@@ -88,15 +89,16 @@ function drawRadar(now) {
     g.fillStyle = col; g.beginPath(); g.arc(x, y, (bad ? 6 : 4.5) * dpr, 0, 7); g.fill();
     if (bad || ok && ap.ssid) { g.fillStyle = "#b8c4d0"; g.font = `${11 * dpr}px JetBrains Mono, monospace`; g.fillText((ap.ssid || "").slice(0, 14), x + 9 * dpr, y + 4 * dpr); }
   });
-  requestAnimationFrame(drawRadar);
+  if(!reduced)raf=requestAnimationFrame(drawRadar);
 }
 
-async function ack(key) { await fetch("/api/ack", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ key }) }); poll(); }
+async function ack(key) {try{ await request("/api/ack", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ key }) }); poll(); }catch{$("#approveMsg").textContent="Acknowledgment unconfirmed. No automatic retry."}}
 $("#approve").onclick = async () => {
   const ssids = [...document.querySelectorAll("#ssidPick input:checked")].map((i) => i.value);
   if (!ssids.length) { $("#approveMsg").textContent = "Pick at least one network."; return; }
-  const r = await fetch("/api/baseline/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ssids }) });
-  const j = await r.json(); $("#approveMsg").textContent = j.ok ? "Baseline saved from the last few scans." : j.message; poll();
+  $("#approve").disabled=true;try{
+  const r = await request("/api/baseline/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ssids }) });
+  const j = r; $("#approveMsg").textContent = j.ok ? "Baseline saved from the last few scans." : j.message; poll();}catch{$("#approveMsg").textContent="Approval unconfirmed. Check the baseline before retrying."}finally{$("#approve").disabled=false}
 };
 
 function showFrame(i) {
@@ -106,26 +108,30 @@ function showFrame(i) {
 }
 function tick() { if (!playing) return; showFrame((frame + 1) % demo.frames.length); }
 
+async function request(url,options={}){const c=new AbortController(),t=setTimeout(()=>c.abort(),8000);try{const r=await fetch(url,{...options,signal:c.signal});if(!r.ok)throw Error('HTTP '+r.status);const text=await r.text();if(text.length>2000000)throw Error('large response');return JSON.parse(text)}finally{clearTimeout(t)}}
+let polling=false;
 async function poll() {
-  try { const r = await fetch("/api/state", { cache: "no-store" }); if (!r.ok) throw 0; render(await r.json()); } catch (e) { $("#sub").textContent = "Lost contact with the local scanner."; }
+  if(polling)return;polling=true;
+  try {render(await request("/api/state",{cache:"no-store"}))}catch{render({...st,status:"unavailable",error:"Lost contact with the local scanner. Previous observations may be stale."})}finally{polling=false}
 }
 async function start() {
   try {
-    const r = await fetch("/api/state", { cache: "no-store" }); if (!r.ok) throw 0;
-    const s = await r.json(); mode = s.mode;
+    if(!["localhost","127.0.0.1"].includes(location.hostname))throw Error("public fixture only");
+    const s = await request("/api/state",{cache:"no-store"}); mode = s.mode;
     $("#mode").textContent = mode === "replay" ? "replay (test fixture)" : "live scan";
     if (mode === "replay") { $("#banner").hidden = false; $("#banner").textContent = "Replaying a labelled test fixture, not a real scan."; }
     render(s); setInterval(poll, 3000); return;
   } catch (e) {}
   mode = "demo";
-  demo = await (await fetch("demo.json")).json();
+  demo = await request("demo.json");if(!demo.fixture||!Array.isArray(demo.frames)||!demo.frames.length)throw Error("Invalid fixture");
   $("#mode").textContent = "demo (test fixture)";
   $("#banner").hidden = false;
   $("#banner").innerHTML = "This is a public demo that replays a scripted test scenario. It is not a scan of your network. To scan for real, download the tool and run <code>sh run.sh</code> on a laptop; nothing leaves your machine.";
   $("#replayCard").hidden = false; $("#cycN").textContent = demo.frames.length; $("#range").max = demo.frames.length;
   $("#range").oninput = (e) => { playing = false; $("#play").textContent = "Play"; showFrame(+e.target.value - 1); };
-  $("#play").onclick = () => { playing = !playing; $("#play").textContent = playing ? "Pause" : "Play"; };
-  frame = demo.frames.length - 1; showFrame(0); timer = setInterval(tick, 1100);
+  $("#play").onclick = () => { playing = !playing; $("#play").textContent = playing ? "Pause" : "Play";if(reduced){clearInterval(timer);if(playing)timer=setInterval(tick,1100)} };
+  frame = demo.frames.length - 1; showFrame(0); if(!reduced)timer = setInterval(tick, 1100);else{playing=false;$("#play").textContent="Play"}
 }
-start();
+start().catch(()=>{$("#headline").textContent="Demo unavailable";$("#sub").textContent="Could not load the fixture. This is not a live scan."});
+window.addEventListener("pagehide",()=>{clearInterval(timer);cancelAnimationFrame(raf)});
 })();
