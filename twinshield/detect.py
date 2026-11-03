@@ -142,6 +142,9 @@ class Incidents:
             it["level"] = level(it["score"], it["sightings"]); it["label"] = LABEL[it["level"]]
         for k, it in self.items.items():
             if k not in seen: it["active"] = False
+        if len(self.items)>500:
+            ordered=sorted(self.items,key=lambda k:(self.items[k]["active"],self.items[k]["last_seen"]))
+            for key in ordered[:len(self.items)-500]: del self.items[key]
         return self
     def snapshot(self):
         return sorted(self.items.values(), key=lambda i: (not i["active"], -i["score"]))
