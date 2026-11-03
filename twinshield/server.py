@@ -7,19 +7,21 @@ MIME = {".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/ja
 
 class Engine:
     def __init__(self, interval=10, replay=False):
-        self.interval, self.replay = interval, replay
+        self.interval, self.replay = max(5,min(3600,interval)), replay
         self.lock = threading.Lock()
         self.baseline = store.load("baseline.json", None)
         self.inc = detect.Incidents()
         self.last_scan, self.error, self.cycle, self.last_ok = [], None, 0, None
         self.recent = []                      # recent raw scans, used to build a baseline on approval
         self.log = store.load("log.json", [])
+        if not isinstance(self.log,list): self.log=[]
+        if not isinstance(self.baseline,dict) or not isinstance(self.baseline.get("networks"),dict): self.baseline=None
         self.fx = fixtures.scenario() if replay else None
     def tick(self):
         try:
             aps = self.fx[self.cycle % len(self.fx)] if self.fx else scan.scan_once()
             err = None
-        except scan.ScanError as e:
+        except (scan.ScanError, ValueError, TypeError, KeyError) as e:
             aps, err = [], str(e)
         with self.lock:
             self.cycle += 1
@@ -34,7 +36,8 @@ class Engine:
                     if it["level"] != "low" and it["sightings"] == 1 and it["active"]:
                         self.log.append({"t": time.time(), "key": it["key"], "score": it["score"], "baseline": self.baseline["version"]})
                 self.log = self.log[-500:]
-                store.save("log.json", self.log)
+                try: store.save("log.json", self.log)
+                except OSError: self.error="Could not save the local alert log."
     def loop(self):
         while True:
             self.tick(); time.sleep(self.interval)
@@ -54,8 +57,11 @@ class Engine:
     def approve(self, ssids):
         with self.lock:
             if len(self.recent) < 2: return False, "Need at least two completed scans first."
-            self.baseline = detect.make_baseline(self.recent, set(ssids))
-            store.save("baseline.json", self.baseline)
+            if not ssids or any(s not in {a["ssid"] for rows in self.recent for a in rows} for s in ssids): return False,"Choose observed networks only."
+            candidate=detect.make_baseline(self.recent,set(ssids))
+            try: store.save("baseline.json",candidate)
+            except OSError: return False,"Baseline was not saved. Check local storage permissions."
+            self.baseline=candidate
             self.inc = detect.Incidents()
             return True, "ok"
     def ack(self, key):
@@ -70,12 +76,21 @@ def make_handler(engine, port):
             self.send_response(code); self.send_header("Content-Type", "application/json")
             self.send_header("Cache-Control", "no-store"); self.send_header("Content-Length", str(len(b)))
             self.end_headers(); self.wfile.write(b)
+        def _allowed_host(self):
+            return self.headers.get("Host", "") in (f"127.0.0.1:{port}",f"localhost:{port}")
+        def end_headers(self):
+            self.send_header("X-Content-Type-Options","nosniff")
+            self.send_header("Referrer-Policy","no-referrer")
+            self.send_header("X-Frame-Options","DENY")
+            super().end_headers()
         def do_GET(self):
+            if not self._allowed_host(): return self._json(403,{"error":"forbidden"})
             p = self.path.split("?")[0]
             if p == "/api/state": return self._json(200, engine.state())
             if p == "/": p = "/index.html"
             f = (WEB / p.lstrip("/")).resolve()
-            if WEB not in f.parents or not f.is_file() or f.suffix not in MIME or f.parent.name in ("twinshield",):
+            allowed={"index.html","app.js","style.css","demo.json","404.html","robots.txt","sitemap.xml","llms.txt"}
+            if WEB not in f.parents or not f.is_file() or f.suffix not in MIME or (f.relative_to(WEB).as_posix() not in allowed and not (f.parent==WEB/"assets" and f.suffix in (".css",".txt"))):
                 self.send_response(404); self.end_headers(); return
             b = f.read_bytes()
             self.send_response(200); self.send_header("Content-Type", MIME[f.suffix]); self.send_header("Content-Length", str(len(b)))
@@ -85,11 +100,18 @@ def make_handler(engine, port):
             origin = self.headers.get("Origin", "")
             if host not in (f"127.0.0.1:{port}", f"localhost:{port}") or (origin and origin not in (f"http://127.0.0.1:{port}", f"http://localhost:{port}")):
                 return self._json(403, {"error": "forbidden"})
-            n = int(self.headers.get("Content-Length", "0") or 0)
-            try: body = json.loads(self.rfile.read(min(n, 100000)) or b"{}")
-            except ValueError: return self._json(400, {"error": "bad json"})
+            if not self.headers.get("Content-Type","").startswith("application/json"): return self._json(415,{"error":"JSON required"})
+            try: n=int(self.headers.get("Content-Length","0"))
+            except ValueError: return self._json(400,{"error":"bad length"})
+            if n<0 or n>10000: return self._json(413,{"error":"body too large"})
+            self.connection.settimeout(5)
+            try: body = json.loads(self.rfile.read(n) or b"{}")
+            except (ValueError,OSError): return self._json(400, {"error": "bad json"})
+            if not isinstance(body,dict): return self._json(400,{"error":"object required"})
             if self.path == "/api/baseline/approve":
-                ok, msg = engine.approve([s for s in body.get("ssids", []) if isinstance(s, str)])
+                ssids=body.get("ssids",[])
+                if not isinstance(ssids,list) or len(ssids)>100 or any(not isinstance(s,str) or len(s)>128 for s in ssids): return self._json(400,{"error":"invalid network list"})
+                ok, msg = engine.approve(ssids)
                 return self._json(200 if ok else 409, {"ok": ok, "message": msg})
             if self.path == "/api/ack":
                 engine.ack(str(body.get("key", ""))); return self._json(200, {"ok": True})
