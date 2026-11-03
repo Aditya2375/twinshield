@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TwinShield - warning for lookalike Wi-Fi hotspots</title>
 <meta name="description" content="A local tool that compares nearby Wi-Fi access points with a network you approved and shows the evidence when something looks like a twin.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://twinshield-five.vercel.app/"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1015"><meta property="og:title" content="TwinShield / Wi-Fi metadata review"><meta property="og:description" content="Public fixture demo, not a network scan or proof of safety."><meta property="og:type" content="website"><meta property="og:url" content="https://twinshield-five.vercel.app/"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self' data:; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
 </head>
 <body>
 <header class="top">
@@ -29,7 +29,7 @@
 
   <div class="grid">
     <section class="card radar-card">
-      <div class="card-h"><h2>Nearby radios</h2><span class="hint">distance = signal strength</span></div>
+      <div class="card-h"><h2>Nearby radios</h2><span class="hint">signal visualization, not position</span></div>
       <canvas id="radar" aria-label="Radar view of nearby access points"></canvas>
       <div class="legend"><span><i class="k ok"></i>approved</span><span><i class="k other"></i>not in baseline</span><span><i class="k warn"></i>flagged</span></div>
     </section>
