@@ -1,5 +1,7 @@
 """Recorded-style test scenario for logic tests and the public demo. Labelled as a fixture everywhere it is shown."""
+
 import random
+
 
 def scenario(cycles=24, seed=7):
     rnd = random.Random(seed)
@@ -17,16 +19,40 @@ def scenario(cycles=24, seed=7):
         scan = []
         for ssid, b, ch, fr, sg, sec in base:
             if ssid == "CampusNet" and b.endswith("02") and 12 <= i < 24:
-                ch, fr = 11, 2462          # ordinary channel change by the owner
+                ch, fr = 11, 2462  # ordinary channel change by the owner
             if rnd.random() < 0.04 and ssid in ("PrinterRoom", "Cafe Beans"):
                 continue
-            scan.append({"ssid": ssid, "bssid": b, "channel": ch, "freq": fr,
-                         "signal_pct": max(5, min(99, sg + rnd.randint(-4, 4))), "security": sec})
-        if i >= 8:   # controlled twin: same name, new radio, no security
-            scan.append({"ssid": "CampusNet", "bssid": "02:19:e3:5d:44:aa", "channel": 6, "freq": 2437,
-                         "signal_pct": 88 + rnd.randint(-3, 3), "security": "OPEN"})
+            scan.append(
+                {
+                    "ssid": ssid,
+                    "bssid": b,
+                    "channel": ch,
+                    "freq": fr,
+                    "signal_pct": max(5, min(99, sg + rnd.randint(-4, 4))),
+                    "security": sec,
+                }
+            )
+        if i >= 8:  # controlled twin: same name, new radio, no security
+            scan.append(
+                {
+                    "ssid": "CampusNet",
+                    "bssid": "02:19:e3:5d:44:aa",
+                    "channel": 6,
+                    "freq": 2437,
+                    "signal_pct": 88 + rnd.randint(-3, 3),
+                    "security": "OPEN",
+                }
+            )
         if i >= 16:  # look-alike spelling
-            scan.append({"ssid": "CampusNet-", "bssid": "02:19:e3:5d:44:b1", "channel": 1, "freq": 2412,
-                         "signal_pct": 71 + rnd.randint(-3, 3), "security": "WPA"})
+            scan.append(
+                {
+                    "ssid": "CampusNet-",
+                    "bssid": "02:19:e3:5d:44:b1",
+                    "channel": 1,
+                    "freq": 2412,
+                    "signal_pct": 71 + rnd.randint(-3, 3),
+                    "security": "WPA",
+                }
+            )
         cyc.append(scan)
     return cyc
