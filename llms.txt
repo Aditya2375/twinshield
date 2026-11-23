@@ -1,2 +1,1 @@
-# TwinShield
-Public scripted fixture demo, not a real network scan. Local Python tool reads Wi-Fi metadata only. Scores are review priorities, not attack probabilities. No rule finding proves safety. Radar placement is illustrative, not geographic.
+TwinShield is a local Wi-Fi metadata review tool. The hosted page is a labelled fixture lab, not a scan of a visitor's network. Review scores are priorities, not probabilities. A baseline is owner-approved reference data, not a guarantee of safety. Python 3.8 or newer runs the local server; live scanning uses nmcli on Linux or netsh on Windows. Recent macOS versions need fixture replay instead. No packet capture, credential collection or disconnection. Source and MIT license: https://github.com/Aditya2375/twinshield

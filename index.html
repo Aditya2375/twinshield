@@ -1,78 +1,490 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TwinShield - warning for lookalike Wi-Fi hotspots</title>
-<meta name="description" content="A local tool that compares nearby Wi-Fi access points with a network you approved and shows the evidence when something looks like a twin.">
-<link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="style.css">
-<link rel="canonical" href="https://twinshield-five.vercel.app/"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1015"><meta property="og:title" content="TwinShield / Wi-Fi metadata review"><meta property="og:description" content="Public fixture demo, not a network scan or proof of safety."><meta property="og:type" content="website"><meta property="og:url" content="https://twinshield-five.vercel.app/"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self' data:; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
-</head>
-<body>
-<header class="top">
-  <div class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 4.5-3.2 7.7-8 9-4.8-1.3-8-4.5-8-9V6z"/><path d="M8.5 12.5h7M12 9v7" opacity=".5"/></svg><span>TwinShield</span></div>
-  <div class="mode" id="mode">Connecting</div>
-</header>
-
-<div class="banner" id="banner" hidden></div>
-
-<main>
-  <section class="status" id="status">
-    <div class="status-dot" id="dot"></div>
-    <div>
-      <h1 id="headline">Reading the air</h1>
-      <p id="sub">Waiting for the first scan.</p>
-    </div>
-    <div class="status-meta"><div id="meta1"></div><div id="meta2"></div></div>
-  </section>
-
-  <div class="grid">
-    <section class="card radar-card">
-      <div class="card-h"><h2>Nearby radios</h2><span class="hint">signal visualization, not position</span></div>
-      <canvas id="radar" aria-label="Radar view of nearby access points"></canvas>
-      <div class="legend"><span><i class="k ok"></i>approved</span><span><i class="k other"></i>not in baseline</span><span><i class="k warn"></i>flagged</span></div>
-    </section>
-
-    <section class="card">
-      <div class="card-h"><h2>Alerts</h2><span class="hint" id="alertCount"></span></div>
-      <div id="alerts"></div>
-    </section>
-  </div>
-
-  <section class="card" id="replayCard" hidden>
-    <div class="card-h"><h2>Test fixture timeline</h2><span class="hint">scan cycle <b id="cyc">1</b> of <b id="cycN"></b></span></div>
-    <div class="scrub"><button id="play" type="button">Pause</button><input type="range" id="range" min="1" value="1" aria-label="Scan cycle"></div>
-    <p class="note">This public demo replays a scripted scenario: an approved campus network, an owner's channel change, a controlled twin with no security, and a lookalike name. It is test data, not a real scan.</p>
-  </section>
-
-  <div class="grid two">
-    <section class="card">
-      <div class="card-h"><h2>Approved baseline</h2><span class="hint" id="blMeta"></span></div>
-      <div id="baseline"></div>
-      <div id="approveBox" hidden>
-        <p class="note">Only approve networks you own or are authorised to manage. Pick them from what is in the air now.</p>
-        <div id="ssidPick" class="pick"></div>
-        <button class="btn" id="approve" type="button">Approve selected as baseline</button>
-        <p class="note" id="approveMsg" role="status"></p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TwinShield | A closer look at familiar Wi-Fi</title>
+    <meta
+      name="description"
+      content="A local review desk for lookalike Wi-Fi. Compare access-point metadata with a baseline you approve, and inspect the evidence. Try the labelled fixture lab."
+    />
+    <meta name="theme-color" content="#133d65" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta
+      property="og:title"
+      content="TwinShield | A closer look at familiar Wi-Fi"
+    />
+    <meta
+      property="og:description"
+      content="A local wireless review desk. Evidence, not a promise of safety."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://twinshield-five.vercel.app/" />
+    <meta
+      property="og:image"
+      content="https://twinshield-five.vercel.app/share-card.png"
+    />
+    <link rel="canonical" href="https://twinshield-five.vercel.app/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/fonts.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#overview">Skip to review desk</a>
+    <aside class="rail">
+      <a class="brand" href="#overview" aria-label="TwinShield review desk"
+        ><svg viewBox="0 0 36 36" aria-hidden="true">
+          <path
+            d="M6 28V15a9 9 0 0 1 18 0v13M12 28V15a3 3 0 0 1 6 0v13M24 8a9 9 0 0 1 6 8v12"
+          />
+          <circle cx="9" cy="30" r="1" />
+          <circle cx="27" cy="30" r="1" /></svg
+        ><span
+          >TwinShield<span class="brand-sub">Wireless review desk</span></span
+        ></a
+      >
+      <div class="rail-body">
+        <p class="nav-label">Workspace</p>
+        <nav aria-label="Review desk">
+          <a class="nav-current" href="#overview"
+            ><span class="nav-icon">◫</span>Overview</a
+          ><a href="#review"
+            ><span class="nav-icon">≋</span>Evidence queue<span
+              id="navCount"
+              class="nav-count"
+              >0</span
+            ></a
+          ><a href="#radios"><span class="nav-icon">⌁</span>Radio inventory</a
+          ><a href="#baseline"
+            ><span class="nav-icon">⊞</span>Approved baseline</a
+          >
+        </nav>
       </div>
-    </section>
-    <section class="card">
-      <div class="card-h"><h2>Latest scan</h2><span class="hint" id="scanMeta"></span></div>
-      <div class="tbl-wrap"><table id="scanTbl"><thead><tr><th>Name</th><th>Radio</th><th>Ch</th><th>Signal</th><th>Security</th></tr></thead><tbody></tbody></table></div>
-    </section>
-  </div>
-
-  <section class="card limits">
-    <h2>What this can and cannot tell you</h2>
-    <ul>
-      <li>It reports suspicious evidence for you to check. It does not prove an attack and the score is a review priority, not a probability.</li>
-      <li>A copied radio address with the same security and a believable signal can look like the real thing to a metadata-only check.</li>
-      <li>One adapter sees only what is in range, and signal moves with people and walls.</li>
-      <li>It reads access-point names and radio details. It never captures traffic, collects credentials or disconnects anyone.</li>
-    </ul>
-  </section>
-</main>
-<script src="app.js"></script>
-</body>
+      <div class="rail-bottom">
+        <div class="rail-emblem" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <p>Familiar name.<br />Different radio?</p>
+        <span>Read the evidence before<br />you make the connection.</span
+        ><button class="rail-help" id="open-method" type="button">
+          How the review works <span>↗</span>
+        </button>
+      </div>
+      <a
+        class="rail-source"
+        href="https://github.com/Aditya2375/twinshield"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Open source · MIT <span>↗</span></a
+      >
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <p>
+          <span class="top-slash">/</span> Wireless
+          <span class="breadcrumb">/ Review desk</span>
+        </p>
+        <div>
+          <span class="mode-pill" id="mode">Loading source</span
+          ><button class="button small" id="open-local" type="button">
+            Run locally <span>↗</span>
+          </button>
+        </div>
+      </header>
+      <main id="overview" tabindex="-1">
+        <noscript
+          ><div class="source-notice">
+            <b>JavaScript is off.</b> The interactive fixture needs JavaScript.
+            The source and the Python tool are available on GitHub. This page is
+            not scanning your Wi-Fi.
+          </div></noscript
+        >
+        <div class="source-notice" id="banner" role="note">
+          <span class="source-symbol" aria-hidden="true">i</span>
+          <p id="sourceText">
+            Loading the labelled example. This website does not scan your Wi-Fi.
+          </p>
+          <button id="open-local-inline" type="button">
+            Use your own network <span>↗</span>
+          </button>
+        </div>
+        <div class="desk-heading">
+          <div>
+            <p class="section-kicker">A closer look at familiar Wi-Fi</p>
+            <h1>
+              Same name.<br class="mobile-break" />
+              Not always the same radio.
+            </h1>
+            <p class="desk-intro">
+              A name is easy to copy. Compare what is broadcasting with what you
+              approved.
+            </p>
+          </div>
+          <button class="text-button" id="open-method-top" type="button">
+            What counts as evidence? <span>ⓘ</span>
+          </button>
+        </div>
+        <section class="summary" aria-label="Current observation">
+          <div>
+            <span class="metric-icon" aria-hidden="true">⌁</span>
+            <p>
+              <strong id="radioCount">–</strong><span>observed radios</span>
+            </p>
+          </div>
+          <div>
+            <span class="metric-icon" aria-hidden="true">⊞</span>
+            <p>
+              <strong id="networkCount">–</strong><span>approved networks</span>
+            </p>
+          </div>
+          <div>
+            <span class="metric-icon" aria-hidden="true">≋</span>
+            <p>
+              <strong id="findingCount">–</strong><span>active findings</span>
+            </p>
+          </div>
+          <div class="summary-source">
+            <span id="meta1">Waiting for data</span
+            ><span id="meta2">No scan running here</span>
+          </div>
+        </section>
+        <section
+          id="replayCard"
+          class="fixture-player"
+          aria-labelledby="fixtureTitle"
+          hidden
+        >
+          <div class="fixture-top">
+            <div>
+              <h2 id="fixtureTitle">The fixture lab</h2>
+              <p>One example. Four moments to examine.</p>
+            </div>
+            <div class="transport">
+              <button
+                id="play"
+                class="play-button"
+                type="button"
+                aria-pressed="false"
+              >
+                Play sequence <span aria-hidden="true">▶</span></button
+              ><span class="cycle-label"
+                >Cycle <b id="cyc">10</b><span> / </span
+                ><b id="cycN">24</b></span
+              >
+            </div>
+          </div>
+          <div class="chapters" role="group" aria-label="Example moments">
+            <button data-cycle="1" type="button">
+              <span>01</span>Approved radios</button
+            ><button data-cycle="9" type="button">
+              <span>02</span>An unfamiliar radio</button
+            ><button data-cycle="10" type="button">
+              <span>03</span>A second sighting</button
+            ><button data-cycle="17" type="button">
+              <span>04</span>A lookalike name
+            </button>
+          </div>
+          <label class="sr-only" for="range">Fixture scan cycle</label
+          ><input type="range" id="range" min="1" max="24" value="10" />
+          <p class="fixture-caption" id="chapterCaption">
+            Test data, not a scan of your network.
+          </p>
+        </section>
+        <section class="status-strip" id="status" aria-labelledby="headline">
+          <span id="statusMark" aria-hidden="true">…</span>
+          <div>
+            <h2 id="headline">Preparing the review desk</h2>
+            <p id="sub">No observations have been loaded.</p>
+          </div>
+          <button class="text-button" id="retry" type="button" hidden>
+            Retry connection ↻
+          </button>
+        </section>
+        <div class="analysis-grid">
+          <section class="panel signal-panel" aria-labelledby="signalTitle">
+            <div class="panel-heading">
+              <div>
+                <h2 id="signalTitle">The signal field</h2>
+                <p>Reported strength by channel</p>
+              </div>
+              <span class="panel-tag">Metadata only</span>
+            </div>
+            <div class="plot-legend">
+              <span><i class="key approved"></i>In baseline</span
+              ><span><i class="key flagged"></i>Needs review</span
+              ><span><i class="key other"></i>Other radio</span>
+            </div>
+            <div class="band-grid" id="spectrum"></div>
+            <div id="selectedRadio" class="selected-radio"></div>
+            <p class="plot-note">
+              Position is channel and reported signal, not physical location.
+              Select a point or a radio below. Strength is adapter-relative, not
+              a distance.
+            </p>
+          </section>
+          <section
+            class="panel evidence-panel"
+            id="review"
+            aria-labelledby="alertsTitle"
+          >
+            <div class="panel-heading">
+              <div>
+                <h2 id="alertsTitle" tabindex="-1">Evidence queue</h2>
+                <p>Every score has a reason</p>
+              </div>
+              <span class="panel-tag" id="alertCount">Waiting</span>
+            </div>
+            <div class="segmented" role="group" aria-label="Filter evidence">
+              <button type="button" data-filter="active" aria-pressed="true">
+                Present now</button
+              ><button type="button" data-filter="all" aria-pressed="false">
+                All observations
+              </button>
+            </div>
+            <div id="alerts" class="alert-list"></div>
+            <p class="queue-note">
+              A review score is a priority, not the probability of an attack.
+            </p>
+            <p class="action-status" id="actionStatus" role="status"></p>
+          </section>
+        </div>
+        <section
+          class="panel inventory-panel"
+          id="radios"
+          aria-labelledby="inventoryTitle"
+        >
+          <div class="panel-heading">
+            <div>
+              <h2 id="inventoryTitle">Radio inventory</h2>
+              <p>A network name can belong to more than one radio.</p>
+            </div>
+            <span class="panel-tag" id="scanMeta">Waiting</span>
+          </div>
+          <div class="table-controls">
+            <label class="search-box"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="radioSearch"
+                type="search"
+                placeholder="Find a name or radio address"
+                aria-label="Find a radio" /></label
+            ><span class="table-hint">Select a radio to inspect ↗</span>
+          </div>
+          <p class="mobile-table-note">
+            Swipe the table for signal and security →
+          </p>
+          <div
+            class="table-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Radio inventory, scroll horizontally for all columns"
+          >
+            <table id="scanTbl">
+              <caption class="sr-only">
+                Current observations, sorted by signal strength
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Network / radio</th>
+                  <th scope="col">Baseline</th>
+                  <th scope="col">Channel</th>
+                  <th scope="col">Signal</th>
+                  <th scope="col">Security</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p id="searchResult" class="search-result" role="status"></p>
+        </section>
+        <div class="bottom-grid">
+          <section
+            class="panel baseline-panel"
+            id="baseline"
+            aria-labelledby="baselineTitle"
+          >
+            <div class="panel-heading">
+              <div>
+                <h2 id="baselineTitle">Approved baseline</h2>
+                <p>The reference, not a guarantee</p>
+              </div>
+              <span class="panel-tag" id="blMeta">Waiting</span>
+            </div>
+            <div id="baselineList"></div>
+            <div id="approveBox" class="approval-box" hidden>
+              <h3>Choose the networks you manage</h3>
+              <p>
+                Only approve networks you own or are authorised to manage.
+                Approval replaces the baseline using recent observations.
+              </p>
+              <div id="ssidPick" class="pick"></div>
+              <button class="button" id="approve" type="button">
+                Approve selected networks
+              </button>
+              <p id="approveMsg" class="action-status" role="status"></p>
+            </div>
+          </section>
+          <section class="method-note" aria-labelledby="limitsTitle">
+            <span class="method-glyph" aria-hidden="true">≠</span>
+            <h2 id="limitsTitle">Suspicious is not<br />the same as proven.</h2>
+            <p>
+              An unfamiliar radio, weaker security or a lookalike name deserves
+              a closer look. A normal channel change might not.
+            </p>
+            <p>
+              Copied radio addresses can evade these checks. No findings is not
+              proof of safety.
+            </p>
+            <button id="open-method-bottom" class="text-button" type="button">
+              Understand the limits <span>↗</span>
+            </button>
+            <div class="privacy-line">
+              No packet capture. No credentials.<br />No disconnects.
+            </div>
+          </section>
+        </div>
+        <footer>
+          <span
+            >TwinShield <span class="footer-by">by Aditya Kulkarni</span></span
+          >
+          <p>Local tool. Visible evidence. Your decision.</p>
+          <a
+            href="https://github.com/Aditya2375/twinshield"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View the source ↗</a
+          >
+        </footer>
+      </main>
+    </div>
+    <dialog id="methodDialog" aria-labelledby="methodHeading">
+      <div class="dialog-top">
+        <span>Method & limits</span
+        ><button
+          type="button"
+          class="dialog-close"
+          aria-label="Close method"
+          data-close
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="methodHeading">Evidence, not a verdict.</h2>
+      <p>
+        TwinShield compares access-point metadata with an owner-approved
+        baseline. Its rules can find differences. They cannot establish who is
+        operating a radio.
+      </p>
+      <dl class="method-list">
+        <div>
+          <dt>Names & addresses</dt>
+          <dd>
+            An unfamiliar radio using an approved name adds 45 points. A name
+            one small edit from an approved name adds 30.
+          </dd>
+        </div>
+        <div>
+          <dt>Advertised security</dt>
+          <dd>
+            Weaker security adds evidence. A downgrade on an approved radio adds
+            50 points; a new radio with weaker security adds 35.
+          </dd>
+        </div>
+        <div>
+          <dt>Repeated sightings</dt>
+          <dd>
+            A score of at least 60 needs two sightings to be labelled strong
+            suspicious evidence. One sighting is capped at Review.
+          </dd>
+        </div>
+        <div>
+          <dt>Weak signals</dt>
+          <dd>
+            Channel, band and signal changes add smaller amounts. Walls, people
+            and normal maintenance can explain them.
+          </dd>
+        </div>
+      </dl>
+      <div class="dialog-caution">
+        <b>The blind spot</b>
+        <p>
+          A copied radio address with matching security and a believable signal
+          can look genuine. This is not a vulnerability audit, intrusion
+          prevention system or promise of safe Wi-Fi.
+        </p>
+      </div>
+      <p class="dialog-small">
+        Reads network names, radio addresses, channel, signal and advertised
+        security. It does not capture traffic, collect credentials or disconnect
+        anyone. Local records stay in <code>~/.twinshield</code>.
+      </p>
+    </dialog>
+    <dialog id="localDialog" aria-labelledby="localHeading">
+      <div class="dialog-top">
+        <span>From fixture to field</span
+        ><button
+          type="button"
+          class="dialog-close"
+          aria-label="Close local instructions"
+          data-close
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="localHeading">Bring your own baseline.</h2>
+      <p>
+        The website is a labelled example. Real scanning runs on your laptop,
+        with Python 3.8 or newer and no Python packages to install.
+      </p>
+      <ol class="setup-steps">
+        <li>
+          <b>Get the source</b>
+          <p>
+            Clone or download the repository, then open its folder in a
+            terminal.
+          </p>
+        </li>
+        <li>
+          <b>Start the local review desk</b>
+          <pre id="runCommand">
+git clone https://github.com/Aditya2375/twinshield
+cd twinshield
+python3 -m twinshield serve</pre
+          >
+          <button id="copyCommand" class="button secondary" type="button">
+            Copy commands</button
+          ><span id="copyStatus" role="status"></span>
+        </li>
+        <li>
+          <b>Approve what you manage</b>
+          <p>
+            Open <code>http://127.0.0.1:8787</code>, wait for two completed
+            scans, then select networks you own or are authorised to manage.
+            Every later scan is compared with that baseline.
+          </p>
+        </li>
+      </ol>
+      <div class="dialog-caution">
+        <b>Linux or Windows for live scanning</b>
+        <p>
+          Linux needs NetworkManager (<code>nmcli</code>); Windows uses
+          <code>netsh</code>. Recent macOS versions lack the required built-in
+          scanner. Use <code>python3 -m twinshield serve --replay</code> for a
+          local test fixture instead.
+        </p>
+      </div>
+      <a
+        class="button source-button"
+        href="https://github.com/Aditya2375/twinshield"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Open the repository ↗</a
+      >
+    </dialog>
+    <script src="app.js"></script>
+  </body>
 </html>

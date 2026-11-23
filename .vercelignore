@@ -1,0 +1,5 @@
+_review/
+node_modules/
+__pycache__/
+*.pyc
+.git/
